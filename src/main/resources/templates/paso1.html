@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title></title>
 </head>
 <body>
-$END$
+    <form method="post" th:action="@{eventos/calcular/paso1}" th:object="${evento}">
+
+        <h1>Elige un evento</h1>
+        <div th:each="evento, e : ${eventos}">
+            <input type="checkbox">
+            <p th:text="${evento.nombre}"></p>
+            </br>
+            <p th:text="${evento.descripcion}"></p>
+            </br>
+            <p th:text="${evento.fecha}"></p>
+            </br>
+            <p th:text="${evento.lugar}"></p>
+            </br>
+            <p th:text="${evento.precioBase}"></p>
+            </br>
+            <p th:text="${evento.recargoGrada}"></p>
+            </br>
+            <p th:text="${evento.recargoVip}"></p>
+
+        </div>
+    </form>
+
+    <button>Siguiente</button>
 </body>
 </html>
