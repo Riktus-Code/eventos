@@ -1,5 +1,6 @@
 package org.iesvdm.eventos.service;
 
+
 import lombok.extern.slf4j.Slf4j;
 import org.iesvdm.eventos.model.Evento;
 import org.iesvdm.eventos.repository.EventoRepository;
@@ -19,5 +20,9 @@ public class EventoService {
 
     public List<Evento> findAllEvents() {
         return eventoRepository.findAll();
+    }
+
+    public Evento findEventoId (int id){
+        return eventoRepository.findById(id);
     }
 }

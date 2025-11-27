@@ -1,32 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title></title>
+    <meta charset="UTF-8">
+    <title>Eventos</title>
 </head>
 <body>
-    <form method="post" th:action="@{eventos/calcular/paso1}" th:object="${evento}">
-
-        <h1>Elige un evento</h1>
-        <div th:each="evento, e : ${eventos}">
-            <input type="checkbox">
-            <p th:text="${evento.nombre}"></p>
-            </br>
-            <p th:text="${evento.descripcion}"></p>
-            </br>
-            <p th:text="${evento.fecha}"></p>
-            </br>
-            <p th:text="${evento.lugar}"></p>
-            </br>
-            <p th:text="${evento.precioBase}"></p>
-            </br>
-            <p th:text="${evento.recargoGrada}"></p>
-            </br>
-            <p th:text="${evento.recargoVip}"></p>
-
+<h1> LISTA DE EVENTOS </h1>
+<form method="post" th:action="@{/eventos/calcular/paso2}">
+    <fieldset>
+        <legend>Selecciona un evento</legend>
+        <div th:each="evento : ${eventos}">
+            <input type="radio" th:id="${evento.id}" th:value="${evento.id}"
+                   name="eventoId" th:checked="${eventoGet ne null and evento.id eq eventoGet.id}" required>
+            <label th:for="${evento.id}" th:text="${evento.nombre}"></label>
         </div>
-    </form>
+    </fieldset>
+    <div>
+        <label for="cantidadEntradas">Cantidad de entradas:</label>
+        <input type="number" id="cantidadEntradas" name="cantidadEntradas" th:value="${compraEntrada ?: ''}" min="1" required>
+    </div>
+    <button>Continuar</button>
+</form>
 
-    <button>Siguiente</button>
 </body>
 </html>

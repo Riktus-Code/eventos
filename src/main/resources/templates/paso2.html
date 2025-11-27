@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Eventos</title>
+</head>
+<body>
+<h1> LISTA DE EVENTOS </h1>
+<form method="post" th:action="@{/eventos/calcular/paso2}">
+    <fieldset>
+        <legend>Evento seleccionado</legend>
+        <div >
+            <label th:text="${evento.nombre}"></label>
+        </div>
+    </fieldset>
+    <div>
+        <input id="generalId" type="radio" name="zona" value="GENERAL"><label for="generalId">General</label>
+        <input id="gradaId" type="radio" name="zona" value="GRADA"><label for="gradaId">Grada</label>
+        <input id="vipId" type="radio" name="zona" value="VIP"><label for="vipId">Vip</label>
+    </div>
+    <a href="/eventos/calcular/paso1"><button type="button"></button>Anterior</a>
+
+    <button>Siguiente</button>
+</form>
+
+</body>
+</html>
