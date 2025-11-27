@@ -28,7 +28,7 @@ public class EventoController {
     @GetMapping("/calcular/paso1")
     public String calcularPaso1(Evento evento, Model model, CompraEntrada compraEntrada) {
 
-        log.info("calcularPaso1",evento);
+        log.info("calcularPaso1 {}",evento);
         List<Evento> eventos = eventoService.findAllEvents();
 
         model.addAttribute("eventos", eventos);
