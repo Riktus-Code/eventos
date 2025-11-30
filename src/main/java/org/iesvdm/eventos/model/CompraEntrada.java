@@ -23,6 +23,8 @@ public class CompraEntrada {
 
     private String emailComprador;
 
+    private String zona;
+
     private Integer numeroEntrada;
 
     private BigDecimal precioUnitario;

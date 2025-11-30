@@ -25,4 +25,18 @@ public class EventoService {
     public Evento findEventoId (int id){
         return eventoRepository.findById(id);
     }
+
+
+
+    public Double calcularPrecio(String tipoEntrada){
+        double precio = 30;
+        if(tipoEntrada.equalsIgnoreCase("grada")){
+            precio += 15;
+
+        }else if(tipoEntrada.equalsIgnoreCase("vip")){
+            precio += 50;
+        }
+
+        return precio;
+    }
 }
